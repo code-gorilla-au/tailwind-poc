@@ -1,7 +1,7 @@
 <template>
   <button
     type="button"
-    :class="['base-button', `bg-${type}`, 'hover:bg-red-400', 'active:bg-green-700']">
+    :class="['base-button', `bg-${type}`, 'hover:bg-red-400', 'active:bg-green-700', renderRounded]">
     <slot/>
   </button>
 </template>
@@ -15,6 +15,16 @@ export default {
       type: String,
       required: false,
       default: 'primary',
+    },
+    rounded: {
+      type: String,
+      required: false,
+      default: null,
+    },
+  },
+  computed: {
+    renderRounded() {
+      return this.rounded === '' ? 'rounded-full' : '';
     },
   },
 };
@@ -31,16 +41,16 @@ export default {
   color: var(--colour-white-default);
 }
 .bg-success {
-  color: var(--colour-success-default);
+  color: var(--colour-white-default);
 }
 .bg-warning {
-  color: var(--colour-warning-default);
+  color: var(--colour-white-default);
 }
 .bg-danger {
-  color: var(--colour-danger-default);
+  color: var(--colour-white-default);
 }
 .bg-neutral {
-  color: var(--colour-neutral-default);
+  color: var(--colour-white-default);
 }
 .bg-white {
   color: var(--colour-white-default);
