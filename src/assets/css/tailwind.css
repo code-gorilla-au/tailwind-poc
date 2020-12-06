@@ -1,3 +1,13 @@
+:root {
+    --colour-primary-default: #14a0d3;
+    --colour-secondary-default: #37464d;
+    --colour-success-default: #53C78D;
+    --colour-warning-default: #ffd166;
+    --colour-danger-default: #ED2222;
+    --colour-neutral-default: #807B7B;
+    --colour-white-default: white;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
