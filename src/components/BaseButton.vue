@@ -1,20 +1,17 @@
 <template>
-  <button
-    type="button"
-    :class="['base-button', `bg-${type}`, 'hover:bg-red-400', 'active:bg-green-700', renderRounded]">
-    <slot/>
+  <button type="button" :class="[renderBase, `bg-${type}`, `hover:bg-${type}-400`, renderRounded]">
+    <slot />
   </button>
 </template>
 
 <script>
-
 export default {
   name: 'BaseButton',
   props: {
     type: {
       type: String,
       required: false,
-      default: 'primary',
+      default: 'blue',
     },
     rounded: {
       type: String,
@@ -26,14 +23,14 @@ export default {
     renderRounded() {
       return this.rounded === '' ? 'rounded-full' : '';
     },
+    renderBase() {
+      return 'flex items-center justify-center p-4 rounded-md text-lg focus:outline-none font-extrabold transition duration-150 ease-in-out';
+    },
   },
 };
 </script>
 
 <style>
-.base-button {
-  @apply flex items-center justify-center p-4 rounded-md text-lg focus:outline-none font-extrabold transition duration-150 ease-in-out
-}
 .bg-primary {
   color: var(--colour-white-default);
 }

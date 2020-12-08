@@ -1,11 +1,26 @@
 :root {
-    --colour-primary-default: #14a0d3;
-    --colour-secondary-default: #37464d;
-    --colour-success-default: #53C78D;
-    --colour-warning-default: #ffd166;
-    --colour-danger-default: #ED2222;
-    --colour-neutral-default: #807B7B;
-    --colour-white-default: white;
+  --colour-primary-default: #14a0d3;
+  --colour-secondary-default: #37464d;
+  --colour-success-default: #53c78d;
+  --colour-warning-default: #ffd166;
+  --colour-danger-default: #ed2222;
+  --colour-neutral-default: #807b7b;
+  --colour-white-default: white;
+  --shadow-light: rgba(0, 0, 0, 0.34);
+  --shadow-med: rgba(0, 0, 0, 0.49);
+  --shadow-dark: (0, 0, 0, 0.67);
+}
+
+.body,
+#app {
+  height: 100vh;
+  width: 100vw;
+}
+
+.outer-shadow-sm {
+  box-shadow: 2px 2px 7px 1px var(--shadow-light);
+  -webkit-box-shadow: 2px 2px 7px 1px var(--shadow-light);
+  -moz-box-shadow: 2px 2px 7px 1px var(--shadow-light);
 }
 
 @tailwind base;
