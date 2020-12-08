@@ -82,7 +82,8 @@ input {
   box-shadow: none;
   background-color: transparent;
   border: 0;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid;
+  border-bottom-color: var(--colour-neutral-default);
   color: var(--colour-secondary-default);
 }
 .field input:focus {
