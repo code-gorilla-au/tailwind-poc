@@ -78,9 +78,11 @@ export default {
 input {
   outline: none;
   padding: 0.3em;
-  font-size: 1rem;
+  font-size: 1em;
   box-shadow: none;
   background-color: transparent;
+  border: 0;
+  border-bottom: 1px solid #eee;
   color: var(--colour-secondary-default);
 }
 .field input:focus {
