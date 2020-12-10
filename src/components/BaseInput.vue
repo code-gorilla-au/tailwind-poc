@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import { ref, computed } from 'vue';
+import { useBaseInputs } from '@/lib/use/inputs';
 
 export default {
   inheritAttrs: false,
@@ -26,42 +26,16 @@ export default {
     },
     modelValue: [String, Number],
   },
-  setup(props, { attrs, emit }) {
-    const valid = ref(true);
-    const touched = ref(false);
-    const isTouched = computed(() => (touched.value ? 'touched' : ''));
-    const invalidMessage = computed(() => {
-      if (attrs?.title) {
-        return attrs.title;
-      }
-      if (attrs?.required === '') {
-        return `${attrs?.type} is required`;
-      }
-      if (attrs?.type) {
-        return `${attrs?.type} is Invalid`;
-      }
-      return 'Input is invalid';
-    });
-    function clearErrors() {
-      valid.value = true;
-      touched.value = false;
-    }
-    function handleInput(event) {
-      emit('update:modelValue', event.target.value);
-    }
-    function handleInvlaid(event) {
-      touched.value = true;
-      const isValid = event.target.checkValidity();
-      valid.value = isValid;
-    }
+  setup(props, ctx) {
+    const base = useBaseInputs(ctx);
     return {
-      valid,
-      touched,
-      isTouched,
-      invalidMessage,
-      handleInvlaid,
-      clearErrors,
-      handleInput,
+      valid: base.valid,
+      touched: base.touched,
+      isTouched: base.isTouched,
+      invalidMessage: base.invalidMessage,
+      handleInvlaid: base.handleInvlaid,
+      clearErrors: base.clearErrors,
+      handleInput: base.handleInput,
     };
   },
 };

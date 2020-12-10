@@ -1,12 +1,15 @@
 import { ref, computed } from 'vue';
 
-export const baseInputs = (ctx) => {
+export const useBaseInputs = (ctx) => {
   const valid = ref(true);
   const touched = ref(false);
   const isTouched = computed(() => (touched.value ? 'touched' : ''));
   const invalidMessage = computed(() => {
     if (ctx.attrs?.title) {
       return ctx.attrs.title;
+    }
+    if (ctx.attrs?.required === '') {
+      return `${ctx.attrs?.type} is required`;
     }
     if (ctx.attrs?.type) {
       return `${ctx.attrs?.type} is Invalid`;
