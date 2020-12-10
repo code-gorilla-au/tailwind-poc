@@ -34,6 +34,9 @@ export default {
       if (attrs?.title) {
         return attrs.title;
       }
+      if (attrs?.required === '') {
+        return `${attrs?.type} is required`;
+      }
       if (attrs?.type) {
         return `${attrs?.type} is Invalid`;
       }
@@ -70,41 +73,38 @@ export default {
   flex-direction: column;
   margin: 1em 0em;
 }
-.field label {
+label {
   font-size: 0.8rem;
   margin-bottom: 3px;
   color: var(--colour-neutral-default);
 }
 input {
+  transition: 0.5s;
   outline: none;
-  padding: 0.3em;
-  font-size: 1em;
+  font-size: 1rem;
   box-shadow: none;
   background-color: transparent;
-  border: 0;
-  border-bottom: 1px solid;
-  border-bottom-color: var(--colour-neutral-default);
+  border: 1px solid;
+  border-radius: 7px;
+  padding: 0.25em 0.5em;
+  border-color: var(--colour-neutral-default);
   color: var(--colour-secondary-default);
 }
+
 .field input:focus {
   border-color: var(--colour-primary-default);
-  transition: 0.5s;
 }
 
 .error-validation {
   color: var(--colour-danger-default);
 }
 .touched:required:valid {
-  transition: 0.5s;
-  color: var(--colour-neutral-default);
 }
 
 .touched:invalid {
-  transition: 0.5s;
   border-color: var(--colour-danger-default);
 }
 .touched:required:invalid {
-  transition: 0.5s;
   border-color: var(--colour-danger-default);
 }
 </style>

@@ -2,7 +2,7 @@
   <TodoLayout>
     <h1 class="text-center">Title Headers</h1>
     <div class="flex justify-center">
-      <BaseInput v-model="newTodo" type="text" label="Add todo" />
+      <BaseInput required v-model="newTodo" type="text" label="Add todo" />
     </div>
     <ul class="flex justify-center align-center">
       <li v-for="todo in todos" :key="todo">{{ todo }}</li>
@@ -23,10 +23,10 @@ export default {
   },
   setup() {
     const todos = ref(['']);
-    const newToto = ref('');
+    const newTodo = ref('');
     return {
       todos,
-      newToto,
+      newTodo,
     };
   },
 };
