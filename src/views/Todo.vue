@@ -8,7 +8,7 @@
     <ul class="flex justify-center align-center">
       <li v-for="todo in todos" :key="todo.name">
         {{ todo.name }}
-        <BaseCheckbox v-model="todo.checked" label="Done" />
+        <BaseCheckbox labelPosition="right" v-model="todo.checked" label="Done" />
       </li>
     </ul>
   </TodoLayout>

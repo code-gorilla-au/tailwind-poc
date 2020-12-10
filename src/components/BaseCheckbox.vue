@@ -70,7 +70,7 @@ export default {
   transition: 0.3s;
   -webkit-appearance: none;
   background-color: var(--colour-white-default);
-  border: 1px solid var(--colour-success-default);
+  border: 1px solid var(--colour-primary-default);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
   padding: 9px;
   border-radius: 7px;
