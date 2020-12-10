@@ -58,6 +58,7 @@ export default {
   justify-content: center;
   align-items: center;
   color: var(--colour-neutral-default);
+  margin: 0.5rem;
 }
 .checkbox-container {
   margin: 0em 0.5rem;

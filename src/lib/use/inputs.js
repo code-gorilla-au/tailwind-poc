@@ -4,6 +4,8 @@ export const useBaseInputs = (ctx) => {
   const valid = ref(true);
   const touched = ref(false);
   const isTouched = computed(() => (touched.value ? 'touched' : ''));
+  const isInvalid = computed(() => (valid.value ? '' : 'invalid'));
+
   const invalidMessage = computed(() => {
     if (ctx.attrs?.title) {
       return ctx.attrs.title;
@@ -32,6 +34,7 @@ export const useBaseInputs = (ctx) => {
     valid,
     touched,
     isTouched,
+    isInvalid,
     invalidMessage,
     handleInvlaid,
     clearErrors,

@@ -1,9 +1,9 @@
 <template>
   <TodoLayout>
     <h1 class="text-center">Title Headers</h1>
-    <div class="flex justify-center flex-col">
-      <BaseInput required v-model="newTodo" type="text" label="Add todo" />
-      <BaseInput required v-model="newTodo" type="text" label="Add todo" />
+    <div class="flex justify-center align-center">
+      <p>Search</p>
+      <BaseInput required v-model="newTodo" type="text" />
     </div>
     <ul class="flex justify-center align-center">
       <li v-for="todo in todos" :key="todo.name">

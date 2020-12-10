@@ -1,5 +1,5 @@
 <template>
-  <div :class="['field', isTouched]">
+  <div :class="['field', isTouched, isInvalid]">
     <label class="input-label" v-show="label">{{ label }}</label>
     <input
       :class="[isTouched]"
@@ -31,6 +31,7 @@ export default {
     return {
       valid: base.valid,
       touched: base.touched,
+      isInvalid: base.isInvalid,
       isTouched: base.isTouched,
       invalidMessage: base.invalidMessage,
       handleInvlaid: base.handleInvlaid,
@@ -45,13 +46,10 @@ export default {
 .field {
   display: flex;
   flex-direction: column;
-  margin-bottom: 1.2rem;
-  margin-left: 1rem;
-  margin-right: 1em;
-  margin-top: 0.5rem;
+  margin: 1.2rem 1em;
 }
-.field.touched {
-  margin-bottom: 0em;
+.field.touched.invalid {
+  margin-bottom: 0rem;
 }
 .input-label {
   font-size: var(--font-sm);
@@ -81,6 +79,7 @@ input {
   font-size: var(--font-sm);
   margin: 0;
   padding: 0;
+  display: inline-block;
 }
 .touched:required:valid {
 }
