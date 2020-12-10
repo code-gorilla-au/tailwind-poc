@@ -1,7 +1,8 @@
 <template>
   <TodoLayout>
     <h1 class="text-center">Title Headers</h1>
-    <div class="flex justify-center">
+    <div class="flex justify-center flex-col">
+      <BaseInput required v-model="newTodo" type="text" label="Add todo" />
       <BaseInput required v-model="newTodo" type="text" label="Add todo" />
     </div>
     <ul class="flex justify-center align-center">

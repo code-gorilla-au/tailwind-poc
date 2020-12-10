@@ -1,6 +1,6 @@
 <template>
-  <div class="field">
-    <label v-show="label">{{ label }}</label>
+  <div :class="['field', isTouched]">
+    <label class="input-label" v-show="label">{{ label }}</label>
     <input
       :class="[isTouched]"
       @focus="clearErrors"
@@ -45,9 +45,15 @@ export default {
 .field {
   display: flex;
   flex-direction: column;
-  margin: 1em 0em;
+  margin-bottom: 1.2rem;
+  margin-left: 1rem;
+  margin-right: 1em;
+  margin-top: 0.5rem;
 }
-label {
+.field.touched {
+  margin-bottom: 0em;
+}
+.input-label {
   font-size: 0.8rem;
   margin-bottom: 3px;
   color: var(--colour-neutral-default);
@@ -72,6 +78,9 @@ input {
 
 .error-validation {
   color: var(--colour-danger-default);
+  font-size: 0.8rem;
+  margin: 0;
+  padding: 0;
 }
 .touched:required:valid {
 }
