@@ -56,7 +56,6 @@ input {
   transition: 0.5s;
   outline: none;
   font-size: 1rem;
-  box-shadow: none;
   background-color: transparent;
   border: 1px solid;
   border-radius: 7px;
@@ -66,7 +65,9 @@ input {
 }
 
 .field input:focus {
+  outline: none;
   border-color: var(--colour-primary-default);
+  box-shadow: 0 0 5px var(--colour-primary-default);
 }
 
 .error-validation {
