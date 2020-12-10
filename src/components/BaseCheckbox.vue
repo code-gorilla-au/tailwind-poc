@@ -1,6 +1,6 @@
 <template>
   <div class="field">
-    <label v-show="label">{{ label }}</label>
+    <label v-show="label && labelPosition === 'left'">{{ label }}</label>
     <div class="checkbox-container">
       <input
         type="checkbox"
@@ -12,6 +12,7 @@
         @input="handleInput"
       />
     </div>
+    <label v-show="label && labelPosition === 'right'">{{ label }}</label>
   </div>
 </template>
 
@@ -25,6 +26,15 @@ export default {
     label: {
       type: String,
       default: '',
+    },
+    labelPosition: {
+      type: String,
+      required: false,
+      default: 'left',
+      validator(value) {
+        const allowed = ['left', 'right'];
+        return allowed.includes(value);
+      },
     },
     modelValue: [String, Number, Boolean],
   },
@@ -45,6 +55,15 @@ export default {
 <style scoped>
 .field {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--colour-neutral-default);
+}
+.checkbox-container {
+  margin: 0em 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .checkbox {
   transition: 0.3s;
@@ -53,7 +72,7 @@ export default {
   border: 1px solid var(--colour-success-default);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
   padding: 9px;
-  border-radius: 3px;
+  border-radius: 7px;
   display: inline-block;
   position: relative;
 }
