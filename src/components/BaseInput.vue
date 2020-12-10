@@ -54,14 +54,14 @@ export default {
   margin-bottom: 0em;
 }
 .input-label {
-  font-size: 0.8rem;
+  font-size: var(--font-sm);
   margin-bottom: 3px;
   color: var(--colour-neutral-default);
 }
 input {
   transition: 0.5s;
   outline: none;
-  font-size: 1rem;
+  font-size: var(--font-md);
   background-color: transparent;
   border: 1px solid;
   border-radius: 7px;
@@ -78,7 +78,7 @@ input {
 
 .error-validation {
   color: var(--colour-danger-default);
-  font-size: 0.8rem;
+  font-size: var(--font-sm);
   margin: 0;
   padding: 0;
 }

@@ -9,6 +9,8 @@
   --shadow-light: rgba(0, 0, 0, 0.34);
   --shadow-med: rgba(0, 0, 0, 0.49);
   --shadow-dark: (0, 0, 0, 0.67);
+  --font-sm: 0.8rem;
+  --font-md: 1rem;
 }
 
 .body,
