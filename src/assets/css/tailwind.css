@@ -19,6 +19,11 @@
   width: 100vw;
 }
 
+p,
+span {
+  color: var(--colour-secondary-default);
+}
+
 .outer-shadow-sm {
   box-shadow: 2px 2px 7px 1px var(--shadow-light);
   -webkit-box-shadow: 2px 2px 7px 1px var(--shadow-light);
