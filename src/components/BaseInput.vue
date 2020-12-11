@@ -57,7 +57,7 @@ export default {
   color: var(--colour-neutral-default);
 }
 input {
-  transition: 0.5s;
+  transition: 0.3s;
   outline: none;
   font-size: var(--font-md);
   background-color: transparent;
