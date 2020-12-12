@@ -33,7 +33,11 @@ export default {
     TodoList,
   },
   setup() {
-    const todos = ref([{ name: 'fire', checked: false }]);
+    const todos = ref([
+      { name: 'fire', checked: false },
+      { name: 'water', checked: false },
+      { name: 'earth', checked: false },
+    ]);
     const newTodo = ref('');
     function updateTodo(todo) {
       const index = todos.value.findIndex((item) => item.name === todo.name);
