@@ -3,7 +3,7 @@
     <h1 class="text-center">Title Headers</h1>
     <div class="searchText flex justify-center items-center">
       <span>Add Todo</span>
-      <BaseInput required v-model="newTodo" type="text" />
+      <BaseInput @keydown.enter="addTodo" v-model="newTodo" type="text" />
     </div>
     <TodoList>
       <TodoItem
@@ -43,10 +43,19 @@ export default {
       const index = todos.value.findIndex((item) => item.name === todo.name);
       todos.value.splice(index, 1, todo);
     }
+    function addTodo() {
+      const todo = {
+        name: newTodo.value,
+        checked: false,
+      };
+      todos.value.push(todo);
+      newTodo.value = '';
+    }
     return {
       todos,
       newTodo,
       updateTodo,
+      addTodo,
     };
   },
 };
