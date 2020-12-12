@@ -5,19 +5,22 @@
       <span>Add Todo</span>
       <BaseInput required v-model="newTodo" type="text" />
     </div>
-    <ul class="flex justify-center items-center">
-      <li v-for="todo in todos" :key="todo.name">
-        {{ todo.name }}
-        <BaseCheckbox labelPosition="right" v-model="todo.checked" label="Done" />
-      </li>
-    </ul>
+    <TodoList>
+      <TodoItem
+        v-for="todo in todos"
+        v-bind:key="todo.name"
+        :todo="todo"
+        @update-todo="updateTodo"
+      />
+    </TodoList>
   </TodoLayout>
 </template>
 
 <script>
 import TodoLayout from '@/layouts/TodoLayout.vue';
 import BaseInput from '@/components/BaseInput.vue';
-import BaseCheckbox from '@/components/BaseCheckbox.vue';
+import TodoItem from '@/components/TodoItem.vue';
+import TodoList from '@/components/TodoList.vue';
 
 import { ref } from 'vue';
 
@@ -26,14 +29,20 @@ export default {
   components: {
     TodoLayout,
     BaseInput,
-    BaseCheckbox,
+    TodoItem,
+    TodoList,
   },
   setup() {
-    const todos = ref([{ name: '', checked: false }]);
+    const todos = ref([{ name: 'fire', checked: false }]);
     const newTodo = ref('');
+    function updateTodo(todo) {
+      const index = todos.value.findIndex((item) => item.name === todo.name);
+      todos.value.splice(index, 1, todo);
+    }
     return {
       todos,
       newTodo,
+      updateTodo,
     };
   },
 };

@@ -4,12 +4,10 @@
     <div class="checkbox-container">
       <input
         type="checkbox"
-        :class="['checkbox', isTouched]"
-        @focus="clearErrors"
-        @blur="handleInvlaid"
+        :class="['checkbox']"
         v-bind="$attrs"
-        :value="modelValue"
-        @input="handleInput"
+        :checked="modelValue"
+        @change="$emit('update:modelValue', $event.target.checked)"
       />
     </div>
     <label v-show="label && labelPosition === 'right'">{{ label }}</label>
@@ -17,8 +15,6 @@
 </template>
 
 <script>
-import { useBaseInputs } from '@/lib/use/inputs';
-
 export default {
   inheritAttrs: false,
   name: 'BaseCheckbox',
@@ -36,18 +32,10 @@ export default {
         return allowed.includes(value);
       },
     },
-    modelValue: [String, Number, Boolean],
-  },
-  setup(props, ctx) {
-    const base = useBaseInputs(ctx);
-    return {
-      valid: base.valid,
-      touched: base.touched,
-      isTouched: base.isTouched,
-      invalidMessage: base.invalidMessage,
-      handleInvlaid: base.handleInvlaid,
-      handleInput: base.handleInput,
-    };
+    modelValue: {
+      type: Boolean,
+      required: false,
+    },
   },
 };
 </script>
