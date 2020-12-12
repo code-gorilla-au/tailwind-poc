@@ -1,6 +1,6 @@
 <template>
   <TodoLayout>
-    <h1 class="text-center">Title Headers</h1>
+    <h1 class="text-center text-4xl m-8">Todo list</h1>
     <div class="searchText flex justify-center items-center">
       <span>Add Todo</span>
       <BaseInput @keydown.enter="addTodo" v-model="newTodo" type="text" />

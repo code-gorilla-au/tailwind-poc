@@ -1,18 +1,20 @@
 <template>
   <li class="todo-item shadow-md">
     <span>{{ todo.name }}</span>
-    <BaseCheckbox v-model="done" />
+    <span class="todo-actions"><BaseCheckbox v-model="done"/> <IconTrash /></span>
   </li>
 </template>
 
 <script>
 import { ref, watch } from 'vue';
 import BaseCheckbox from '@/components/BaseCheckbox.vue';
+import IconTrash from '@/components/IconTrash.vue';
 
 export default {
   name: 'TodoItem',
   components: {
     BaseCheckbox,
+    IconTrash,
   },
   props: {
     todo: {
@@ -50,5 +52,10 @@ export default {
 }
 .todo-item span {
   margin-left: 1em;
+}
+.todo-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>
