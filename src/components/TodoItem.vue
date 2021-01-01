@@ -1,7 +1,9 @@
 <template>
   <li class="todo-item shadow-md">
     <span>{{ todo.name }}</span>
-    <span class="todo-actions"><BaseCheckbox v-model="done"/> <IconTrash /></span>
+    <span @click="$emit('delete-todo', todo)" class="todo-actions"
+      ><BaseCheckbox v-model="done"/> <IconTrash
+    /></span>
   </li>
 </template>
 
@@ -57,5 +59,10 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0em 0.5rem;
+}
+
+.todo-actions svg {
+  cursor: pointer;
 }
 </style>

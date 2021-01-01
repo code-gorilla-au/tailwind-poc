@@ -11,6 +11,7 @@
         v-bind:key="todo.name"
         :todo="todo"
         @update-todo="updateTodo"
+        @delete-todo="deleteTodo"
       />
     </TodoList>
   </TodoLayout>
@@ -51,11 +52,16 @@ export default {
       todos.value.push(todo);
       newTodo.value = '';
     }
+    function deleteTodo(todo) {
+      const index = todos.value.findIndex((item) => item.name === todo.name);
+      todos.value.splice(index, 1);
+    }
     return {
       todos,
       newTodo,
       updateTodo,
       addTodo,
+      deleteTodo,
     };
   },
 };

@@ -55,6 +55,7 @@ export default {
   align-items: center;
 }
 .checkbox {
+  cursor: pointer;
   transition: 0.3s;
   -webkit-appearance: none;
   background-color: var(--colour-white-default);
