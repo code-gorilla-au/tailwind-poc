@@ -1,14 +1,15 @@
 <template>
-  <li class="todo-item shadow-md">
+  <li :class="['todo-item', 'shadow-md', isChecked]">
     <span>{{ todo.name }}</span>
-    <span @click="$emit('delete-todo', todo)" class="todo-actions"
-      ><BaseCheckbox v-model="done"/> <IconTrash
-    /></span>
+    <span class="todo-actions">
+      <BaseCheckbox v-model="done" />
+      <IconTrash @click="$emit('delete-todo', todo)" />
+    </span>
   </li>
 </template>
 
 <script>
-import { ref, watch } from 'vue';
+import { computed, ref, watch } from 'vue';
 import BaseCheckbox from '@/components/BaseCheckbox.vue';
 import IconTrash from '@/components/IconTrash.vue';
 
@@ -36,8 +37,10 @@ export default {
         emit('update-todo', newTodo);
       },
     );
+    const isChecked = computed(() => (done.value ? 'checked' : ''));
     return {
       done,
+      isChecked,
     };
   },
 };
@@ -51,6 +54,9 @@ export default {
   align-items: center;
   background-color: var(--colour-white-default);
   border-radius: 7px;
+}
+.todo-item.checked {
+  background-color: var(--colour-success-default);
 }
 .todo-item span {
   margin-left: 1em;

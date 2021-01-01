@@ -42,7 +42,7 @@ export default {
     const newTodo = ref('');
     function updateTodo(todo) {
       const index = todos.value.findIndex((item) => item.name === todo.name);
-      todos.value.splice(index, 1, todo);
+      todos.value[index] = todo;
     }
     function addTodo() {
       const todo = {
