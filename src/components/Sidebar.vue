@@ -14,7 +14,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style>
 .sidebar {
   background-color: var(--colour-secondary-default);
   color: var(--colour-white-default);
